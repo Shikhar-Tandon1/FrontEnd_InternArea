@@ -226,7 +226,7 @@ Hire Talent
 
  <div className="flex items-center h-9 justify-center mt-4 text-white bg-slate-100 rounded-lg hover:bg-gray-100">
       < Link to={"/phoneauth"}>
-     <button><h4 className='text-gray-500'>Login Using Phone</h4></button>  </Link>
+     <button><i class="bi bi-telephone"><h4 className='text-gray-500'>Login Using Phone</h4></i></button></Link>
     </div>
 
     <div className="mt-4 flex items-center justify-between">
