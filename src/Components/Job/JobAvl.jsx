@@ -46,7 +46,7 @@ const filterJobs=useCallback((category,location)=>{
     Job.location.toLowerCase().includes(location.toLowerCase())
     )
     setFilterJob(filterData)
-})
+},[]);
 useEffect(()=>{
 
   filterJobs(serachCategory,searchLoaction);
