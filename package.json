@@ -2,8 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://backend-internarea-1dye.onrender.com/api",
+  "proxy": "https://backend-internarea-1dye.onrender.com/api",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@reduxjs/toolkit": "^2.2.6",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
