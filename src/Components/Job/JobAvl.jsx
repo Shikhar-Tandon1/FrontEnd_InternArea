@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import "./job.css"
 import compLogo from "../../Assets/netflix.png"
 import axios from 'axios';
@@ -39,14 +39,14 @@ fetchData();
     setSearchLocation(loactionValue);
     setFilterJob([serachCategory,loactionValue])
   }
-const filterJobs=(category,location)=>{
+const filterJobs=useCallback((category,location)=>{
   const filterData=jobData.filter(
     (Job)=>
     Job.category.toLowerCase().includes(category.toLowerCase())&&
     Job.location.toLowerCase().includes(location.toLowerCase())
     )
     setFilterJob(filterData)
-}
+})
 useEffect(()=>{
 
   filterJobs(serachCategory,searchLoaction);
