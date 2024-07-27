@@ -8,8 +8,8 @@ import Intern from "./Components/Internships/intern"
 import JobAvl from "./Components/Job/JobAvl"
 import JobDetail from './Components/Job/JobDetail';
 import InternDetail from "./Components/Internships/InternDetail"
-import { useDispatch, useSelector } from 'react-redux';
-import { login,logout,selectUser } from "./Feature/Userslice"
+import { useDispatch} from 'react-redux';
+import { login,logout} from "./Feature/Userslice"
 import { useEffect } from 'react';
 import { auth } from './firebase/firebase';
 import Profile from './Profile/Profile';
