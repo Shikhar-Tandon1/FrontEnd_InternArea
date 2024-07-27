@@ -214,7 +214,7 @@ Hire Talent
                          <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#1976D2"/>
                      </svg>
     </div>
-    <h4 className='text-gray-500'>Login With Google ty
+    <h4 className='text-gray-500'>Login With Google 
     </h4>
  </p>
  <div className="mt-4 flex items-center justify-between">
@@ -224,7 +224,7 @@ Hire Talent
 
  </div>
 
- <div className="phonelogin flex items-center h-9 justify-center mt-4 text-white bg-slate-100 rounded-lg hover:bg-gray-100">
+ <div className="flex items-center h-9 justify-center mt-4 text-white bg-slate-100 rounded-lg hover:bg-gray-100">
       < Link to={"/phoneauth"}>
      <button>Login Using Phone</button>  </Link>
     </div>
