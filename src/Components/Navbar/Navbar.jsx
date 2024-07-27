@@ -3,9 +3,8 @@ import logo from '../../Assets/logo.png'
 import { Link } from 'react-router-dom'
 import "./navbar.css"
 import Sidebar from './Sidebar'
-import { signInWithPopup, signOut, RecaptchaVerifier, PhoneAuthProvider  } from 'firebase/auth'
+import { signInWithPopup, signOut } from 'firebase/auth'
 import { auth, provider } from '../../firebase/firebase'
-import { authp, phoneNumber, appVerifier} from '../../firebase/phoneauth'
 import { useSelector } from 'react-redux'
 import { selectUser } from '../../Feature/Userslice'
 import { useNavigate } from 'react-router-dom'
@@ -23,24 +22,6 @@ const user=useSelector(selectUser)
           
         }).catch((err)=>{
             console.log(err)
-        })
-        setDivVisibleForlogin(false)
-    }
-    window.recaptchaVerifier = new RecaptchaVerifier(authp, phone, {
-        'size': 'invisible',
-        'callback': (response) => {
-          onSignInSubmit();
-        }
-    });
-    
-    
-
-    const ploginFunction=()=>{
-        signInWithPhoneNumber(authp, phoneNumber, appVerifier)
-        .then((confirmationResult) => {
-          console.log(confirmationResult)
-        }).catch((error) => {
-          console.log(error)
         })
         setDivVisibleForlogin(false)
     }
@@ -242,12 +223,13 @@ Hire Talent
 <span className='border-b- w-1/5 lg:w-1/4'></span>
 
  </div>
- <p onClick={ploginFunction} className='phone flex
- items-center h-9 justify-center mt-4 text-white bg-slate-100 rounded-lg hover:bg-gray-100' >
-    <h4 className='text-gray-500'>Login using Phone Number
-    </h4>
- </p>
- <div className="mt-4 flex items-center justify-between">
+
+ <div className="phonelogin flex items-center h-9 justify-center mt-4 text-white bg-slate-100 rounded-lg hover:bg-gray-100">
+      < Link to={"/phoneauth"}>
+     <button>Login Using Phone</button>  </Link>
+    </div>
+
+    <div className="mt-4 flex items-center justify-between">
 <span className='border-b- w-1/5 lg:w-1/4'></span>
 <p className='text-gray-500 text sm font-bold mb-2'> or</p>
 <span className='border-b- w-1/5 lg:w-1/4'></span>

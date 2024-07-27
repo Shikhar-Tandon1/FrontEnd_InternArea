@@ -61,6 +61,7 @@ function App() {
 <Route path='/applications' element={<ViewAllApplication/>}/>
 <Route path='/UserapplicationDetail' element={< UserapplicationDetail/>}/>
 <Route path='/userapplication' element={<UserApplication/>}/>
+<Route path='/phoneauth' element={<PhoneAuth/>}/>
 </Routes>
 <Footer/>
     </div>
