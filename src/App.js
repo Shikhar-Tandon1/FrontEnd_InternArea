@@ -20,7 +20,6 @@ import PostInternships from './Admin/PostInternships';
 import DetailApplication from './Applications/DetailApplication';
 import UserApplication from './Profile/UserApplication';
 import UserapplicationDetail from "./Applications/DetailApplicationUser";
-import PhoneAuth from "./firebase/PhoneAuth";
 function App() {
   const dispatch=useDispatch();
   useEffect(() => {
@@ -61,7 +60,6 @@ function App() {
 <Route path='/applications' element={<ViewAllApplication/>}/>
 <Route path='/UserapplicationDetail' element={< UserapplicationDetail/>}/>
 <Route path='/userapplication' element={<UserApplication/>}/>
-<Route path='/phoneauth' element={<PhoneAuth/>}/>
 </Routes>
 <Footer/>
     </div>

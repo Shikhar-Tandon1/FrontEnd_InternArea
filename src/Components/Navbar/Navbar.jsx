@@ -224,17 +224,7 @@ Hire Talent
 
  </div>
 
- <div className="flex items-center h-9 justify-center mt-4 bg-slate-100 rounded-lg hover:bg-gray-100 display: inline-block">
-      < Link to={"/phoneauth"}>
-     <button><h4 className='bi bi-telephone mx-8 text-gray-500'>&nbsp; Login With Phone</h4></button></Link>
-    </div>
 
-    <div className="mt-4 flex items-center justify-between">
-<span className='border-b- w-1/5 lg:w-1/4'></span>
-<p className='text-gray-500 text sm font-bold mb-2'> or</p>
-<span className='border-b- w-1/5 lg:w-1/4'></span>
-
- </div>
  <div class="mt-4">
                  <label class="block text-gray-700 text-sm font-bold mb-2">Email </label>
                  <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email"  placeholder='john@example.com'/>
