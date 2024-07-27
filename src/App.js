@@ -19,7 +19,8 @@ import ViewAllApplication from "./Admin/ViewAllApplication"
 import PostInternships from './Admin/PostInternships';
 import DetailApplication from './Applications/DetailApplication';
 import UserApplication from './Profile/UserApplication';
-import UserapplicationDetail from "./Applications/DetailApplicationUser"
+import UserapplicationDetail from "./Applications/DetailApplicationUser";
+import PhoneAuth from "./firebase/PhoneAuth";
 function App() {
   const user=useSelector(selectUser);
   const dispatch=useDispatch();
