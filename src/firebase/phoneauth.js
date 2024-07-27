@@ -1,0 +1,19 @@
+import { initializeApp } from "firebase/app";
+import {getAuth,signInWithPhoneNumber} from 'firebase/auth'
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCq7R2C8UnLe4uRsUd4GrUMCd0D_BOQmY0",
+    authDomain: "intern-area-1b584.firebaseapp.com",
+    projectId: "intern-area-1b584",
+    storageBucket: "intern-area-1b584.appspot.com",
+    messagingSenderId: "681344438724",
+    appId: "1:681344438724:web:8bfb94cc8fd4cf1c951491",
+    measurementId: "G-PTMXVE49ZT"
+  };
+
+const app = initializeApp(firebaseConfig);
+const authp=getAuth(app);
+authp.useDeviceLanguage();
+const phoneNumber = getPhoneNumberFromUserInput();
+const appVerifier = window.recaptchaVerifier;
+export {authp, phoneNumber, appVerifier}
