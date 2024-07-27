@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 function Home() {
 
 
-    const [currentSlide,setCurrentSlide]=useState(0)
+    const [setCurrentSlide]=useState(0)
     const [selectedCategory,setSelectedCategory]= useState("Big Brands")
 const [internshipData,setInternshipData]=useState([])
 useEffect(()=>{
@@ -171,7 +171,7 @@ View details <i class="bi bi-chevron-right"></i>
                </div>
                <p class="px-4 py-3 w-5/6 text-center text-sm text-gray-600 font-bold ">Sign in with Google</p>
   </a>
-  <a to="/register">
+  <a href="/register">
     <button className='btn6 '> Register</button></a>
     </div>
 </div>

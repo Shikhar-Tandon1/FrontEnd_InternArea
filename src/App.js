@@ -22,7 +22,6 @@ import UserApplication from './Profile/UserApplication';
 import UserapplicationDetail from "./Applications/DetailApplicationUser";
 import PhoneAuth from "./firebase/PhoneAuth";
 function App() {
-  const user=useSelector(selectUser);
   const dispatch=useDispatch();
   useEffect(() => {
     auth.onAuthStateChanged((authUser)=>{

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import "./intern.css"
 
 import compLogo from "../../Assets/netflix.png"
@@ -46,7 +46,7 @@ fetchData();
     setSearchLocation(loactionValue);
     setFilterInternship([serachCategory,loactionValue])
   }
-  const filterInterships = (category, location) => {
+  const filterInterships = useCallback((category, location) => {
     if (InternData && InternData.length > 0) {
     
         const filterData = InternData.filter(
@@ -57,10 +57,10 @@ fetchData();
         setFilterInternship(filterData);
       
     }
-  };
+  },[InternData]);
   useEffect(() => {
     filterInterships(serachCategory, searchLoaction);
-  }, [searchLoaction, serachCategory]);
+  }, [searchLoaction, serachCategory,filterInterships]);
 console.log(filterInternship)
 
  
