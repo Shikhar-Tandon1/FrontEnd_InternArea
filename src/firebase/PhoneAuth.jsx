@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth ,RecaptchaVerifier} from "firebase/auth";
 import { signInWithPhoneNumber } from "firebase/auth";
-
+import { Link } from 'react-router-dom'
+function PhoneAuth(){
 const firebaseConfig = {
   apiKey: "AIzaSyCq7R2C8UnLe4uRsUd4GrUMCd0D_BOQmY0",
   authDomain: "intern-area-1b584.firebaseapp.com",
@@ -17,7 +18,7 @@ const firebaseConfig = {
   'size': 'invisible',
   'callback': (response) => {
     console.log(response) 
-    onSignInSubmit();
+
   }
 });
 let confirmationResult;
@@ -39,7 +40,7 @@ const sendVerificationCode=()=>{
           .then((result) => {
             const user = result.user;
             console.log('User:', user);
-            <Link to={"/"}><img src={logo} alt="" srcset="" /></Link>  
+            <Link to={"/"}></Link>  
           })
           .catch((error) => {
             console.log(error)
@@ -71,4 +72,5 @@ const sendVerificationCode=()=>{
     </div>
   </div>
 </section>
+}
 export default PhoneAuth
