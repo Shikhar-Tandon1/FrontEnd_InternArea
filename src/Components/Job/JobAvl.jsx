@@ -51,7 +51,7 @@ useEffect(()=>{
 
   filterJobs(serachCategory,searchLoaction);
 
-},[searchLoaction,serachCategory])
+},[searchLoaction,serachCategory,filterJobs])
 
 
  
