@@ -1,5 +1,4 @@
 import './App.css';
-import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
 import { Routes,Route } from 'react-router-dom';
@@ -20,6 +19,8 @@ import PostInternships from './Admin/PostInternships';
 import DetailApplication from './Applications/DetailApplication';
 import UserApplication from './Profile/UserApplication';
 import UserapplicationDetail from "./Applications/DetailApplicationUser";
+import LanguageSelector from './Components/LanguageSelector';
+
 function App() {
   const dispatch=useDispatch();
   useEffect(() => {
@@ -41,6 +42,9 @@ function App() {
     },[dispatch] );
   return (
     <div className="App">
+            
+            <LanguageSelector/>   
+
 <Navbar/>
 
 
@@ -61,7 +65,7 @@ function App() {
 <Route path='/UserapplicationDetail' element={< UserapplicationDetail/>}/>
 <Route path='/userapplication' element={<UserApplication/>}/>
 </Routes>
-<Footer/>
+
     </div>
   );
 }

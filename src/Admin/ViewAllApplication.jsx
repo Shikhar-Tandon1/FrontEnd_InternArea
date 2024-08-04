@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import "./admin.css";
 import { Link } from 'react-router-dom'
-
+import { useTranslation } from 'react-i18next'
 
 
 function ViewAllApplication() {
@@ -23,23 +23,24 @@ setApplication(response.data)
         
     },[])
 console.log(application)
+const { t } = useTranslation();  
   return (
     <div>
         <div className='hide'>
      
-    <h1 className='text-3xl font-semibold mt-3'>Total Applications</h1>
+    <h1 className='text-3xl font-semibold mt-3'>{t("Total Applications")}</h1>
     <div className="flex justify-center " id='tabel'>
         <div className="applications flex flex-col mt-7">
             <div className="overflow-x-auto sm:-mx-6 lg:mx-8">
                 <table className="inline-block min-w-full text-left text-sm font-light">
 <thead className='border-b font-medium'>
     <tr className='bg-gray-200'>
-        <th scope='col' className='px-5 py-4'>Company</th>
-        <th scope='col' className='px-5 py-4'>Category</th>
-        <th scope='col' className='px-5 py-4'>Applied On</th>
-        <th scope='col' className='px-5 py-4'>Applied By</th>
-        <th scope='col' className='px-5 py-4'>View Detail</th>
-        <th scope='col' className='px-5 py-4'>Application Status</th>
+        <th scope='col' className='px-5 py-4'>{t("Company")}</th>
+        <th scope='col' className='px-5 py-4'>{t("Category")}</th>
+        <th scope='col' className='px-5 py-4'>{t("Applied On")}</th>
+        <th scope='col' className='px-5 py-4'>{t("Applied By")}</th>
+        <th scope='col' className='px-5 py-4'>{t("View Detail")}</th>
+        <th scope='col' className='px-5 py-4'>{t("Application Status")}</th>
 
     </tr>
 
@@ -72,7 +73,7 @@ console.log(application)
     </div>
 
     <div className='show'>
-        <h1>View All Applications</h1>
+        <h1>{t("View All Applications")}</h1>
         {application.map((data)=>(
    <section class="text-gray-600 body-font">
    <div class="container px-5 py-2 mx-auto flex flex-wrap">
@@ -85,11 +86,11 @@ console.log(application)
              </svg>
            </div>
            <div class="flex-grow">
-             <h2 class="text-gray-900 text-lg title-font font-medium mb-3"> Company Name {data.company}</h2>
-             <p class="leading-relaxed text-base"> Applied by  {data.user.name}</p>
-             <p class="leading-relaxed text-base"> Applied on  {new Date(data?.createAt).toLocaleDateString()}</p>
-             <p class="leading-relaxed text-base"> Application status  {data.status}</p>
-             <Link to={`/detailApplication?a=${data._id}`} class="mt-3 text-indigo-500 inline-flex items-center">View in detail
+             <h2 class="text-gray-900 text-lg title-font font-medium mb-3"> {t("Company")} {data.company}</h2>
+             <p class="leading-relaxed text-base"> {t("Applied By")}  {data.user.name}</p>
+             <p class="leading-relaxed text-base"> {t("Applied On")}  {new Date(data?.createAt).toLocaleDateString()}</p>
+             <p class="leading-relaxed text-base"> {t("Application Status")}  {data.status}</p>
+             <Link to={`/detailApplication?a=${data._id}`} class="mt-3 text-indigo-500 inline-flex items-center">{t("View Detail")}
              <i class="bi bi-chevron-compact-right text-blue-500" ></i>              
              </Link>
            </div>

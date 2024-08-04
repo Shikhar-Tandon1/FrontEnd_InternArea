@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '../../Feature/Userslice';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase/firebase';
+import { useTranslation } from 'react-i18next'
 
 function Sidebar() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -26,6 +27,7 @@ const navigate=useNavigate()
     };
 
     document.addEventListener('click', handleOutsideClick);
+    
 
     return () => {
       document.removeEventListener('click', handleOutsideClick);
@@ -37,6 +39,7 @@ const navigate=useNavigate()
   
 }
   const user=useSelector(selectUser)
+  const { t } = useTranslation();
   return (
 
     <>
@@ -53,7 +56,7 @@ const navigate=useNavigate()
    <Link to={"/profile"}>
    <img className='rounded-full justify-center' src={user.photo} alt="" srcset="" />
    </Link> 
-    <p className=' text-center'>Profile name <span className='font-bold text-blue-500'>{user?.name}</span></p>
+    <p className=' text-center'>{t("Profile name")} <span className='font-bold text-blue-500'>{user?.name}</span></p>
   </div>
   </>
 ):
@@ -65,10 +68,10 @@ const navigate=useNavigate()
 </div>
   ) 
 }
-          <Link to="/internship">Internships </Link>
-    <Link to="/Jobs">Jobs  </Link>
+          <Link to="/internship">{t("Internships")} </Link>
+    <Link to="/Jobs">{t("Jobs")}  </Link>
        
-       <Link to={"/"} className='small'>Contact Us</Link> 
+       <Link to={"/"} className='small'>{t("Contact Us")}</Link> 
 <hr />
 {user?(
   <>
@@ -76,11 +79,11 @@ const navigate=useNavigate()
     
     {user?(
   <Link to={"/userapplication"}>
-  <p>My Applications</p>
+  <p>{t("My Applications")}</p>
   </Link>
     ):(
       <Link to={"/register"}>
-      <p>My Applications</p>
+      <p>{t("My Applications")}</p>
       </Link>
     )
 
@@ -88,15 +91,15 @@ const navigate=useNavigate()
 
   <Link>
   
-  <p>View Resume</p>
+  <p>{t("View Resume")}</p>
   </Link>
   <Link>
-  <p>More</p>
+  <p>{t("More")}</p>
   </Link>
-  <button className='bt-log' id='bt' onClick={logoutFunction}>Logout <i class="bi bi-box-arrow-right"></i></button>
+  <button className='bt-log' id='bt' onClick={logoutFunction}>{t("Logout")} <i class="bi bi-box-arrow-right"></i></button>
   <br />
   <br />
-<button onClick={logoutFunction}>Log Out <i class="bi bi-box-arrow-right"></i></button>
+<button onClick={logoutFunction}>{t("Logout")} <i class="bi bi-box-arrow-right"></i></button>
   
   </div>
   </>
@@ -105,8 +108,8 @@ const navigate=useNavigate()
 
   
   <div className="addmore">
-  <p>Register- As a Student</p>
-  <p>Register- As a Employer</p>
+  <p>{t("Register- As a Student")}</p>
+  <p>{t("Register- As a Employer")}</p>
   <br />
   <br />
 
@@ -145,7 +148,7 @@ const navigate=useNavigate()
   <div className="admin">
 
 <Link to={"/adminLog"}>
-<button id='admin'> Admin Login</button>
+<button id='admin'> {t("Login as Admin")}</button>
 </Link>
 </div>
   </>
@@ -156,7 +159,7 @@ const navigate=useNavigate()
 }
 
 
-<p className='text-red-300'>Hire Talent</p>
+<p className='text-red-300'>{t("Hire Talent")}</p>
 
       </div>
     </>

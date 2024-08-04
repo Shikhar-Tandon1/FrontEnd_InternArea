@@ -4,6 +4,7 @@ import './register.css'
 import {auth,provider} from "../../firebase/firebase"
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 function Register() {
   const [isStudent,setStudent]=useState(true)
   const [isDivVisible, setDivVisible]=useState(false)
@@ -35,11 +36,12 @@ const setFalseForStudent=()=>{
 const closeLogin=()=>{
     setDivVisible(false)
 }
+const { t } = useTranslation();
   return (
     <div>
       <div className="form">
-        <h1>Sign-up and Apply For Free</h1>
-        <p className='para3'>1,50,000+ companies hiring on Internshala</p>
+        <h1>{t("Sign-up and Apply For Free")}</h1>
+        <p className='para3'>{t("1,50,000+ companies hiring on Internshala")}</p>
       <div className="regi">
         <div className="py-6">
           <div className="flex bg-white rounded-lg justify-center shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
@@ -53,36 +55,36 @@ const closeLogin=()=>{
                            <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#1976D2"/>
                        </svg>
                    </div>
-                   <h1 class="cursor-pointer px-4 py-3 w-5/6 text-center text-xl text-gray-600 font-bold">Sign in with Google</h1>
+                   <h1 class="cursor-pointer px-4 py-3 w-5/6 text-center text-xl text-gray-600 font-bold">{t("Sign in with Google")}</h1>
                </p>
                <div className="mt-4 flex items-center justify-between">
 <span className='border-b w-1/5 lg:w1/4'></span>
-<a href="/" className='text-xs text-center text-gray-500 uppercase'>or</a>
+<a href="/" className='text-xs text-center text-gray-500 uppercase'>{t("or")}</a>
 <span className='border-b w-1/5 lg:w1/4'></span>
                </div>
 
               <div className="mt-4">
-                <label htmlFor="email" className='border-b text-gray-700 text-sm font-bold mb-2'>Email</label>
+                <label htmlFor="email" className='border-b text-gray-700 text-sm font-bold mb-2'>{t("Email.base")}</label>
                 <input type="email"  value={email} onChange={(e)=>setEmail(e.target.value)} className='text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' id='email' />
               </div> 
               <div className="mt-4">
-                <label htmlFor="password" className='border-b text-gray-700 text-sm font-bold mb-2'>Password</label>
+                <label htmlFor="password" className='border-b text-gray-700 text-sm font-bold mb-2'>{t("Password.base")}</label>
                 <input type="text"  value={password} onChange={(e)=>setPassword(e.target.value)} className='text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' id='password' />
               </div> 
               <div className="mt-4 flex justify-between">
 <div>
-<label htmlFor="Fname" className='border-b text-gray-700 text-sm font-bold mb-2'>First Name</label>
+<label htmlFor="Fname" className='border-b text-gray-700 text-sm font-bold mb-2'>{t("First Name")}</label>
                 <input type="text" className='text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' id='Fname' value={fname} onChange={(e)=>setFname(e.target.value)} />
 </div>
 <div className='ml-5'>
-<label htmlFor="Lname" className='border-b text-gray-700 text-sm font-bold mb-2'>Last Name</label>
+<label htmlFor="Lname" className='border-b text-gray-700 text-sm font-bold mb-2'>{t("Last Name")}</label>
                 <input type="text" className='text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none' id='Lname'  value={lname} onChange={(e)=>setLname(e.target.value)}/>
 </div>
               </div>
-              <small>By signing up, you agree to our <span className='text-blue-400'>Term and Conditions.
+              <small>{t("By signing up, you agree to our")} <span className='text-blue-400'>{t("Term and Conditions")}
                 </span></small>
-                <button className='bg-blue-500 h-9 text-white font-bold py-2 mt-4 px-4 w-full rounded hover:bg-blue-600'>Sign Up </button>
-                Already registered? <span className='text-blue-400 cursor-pointer' onClick={showLogin}>Login</span> 
+                <button className='bg-blue-500 h-9 text-white font-bold py-2 mt-4 px-4 w-full rounded hover:bg-blue-600'>{t("Sign Up")} </button>
+                {t("Already registered?")} <span className='text-blue-400 cursor-pointer' onClick={showLogin}>{t("Login")}</span> 
 </div>
           </div>
         </div>
@@ -95,11 +97,11 @@ const closeLogin=()=>{
             <button id='cross' onClick={closeLogin}><i class="bi bi-x"></i></button>
             <h5 id='state' className='mb-4 justify-center text-center'>
                 <span id='Sign-in' style={{cursor:"pointer"}} className={`auth-tab ${isStudent? 'active':""}`} onClick={setFalseForStudent}>
-                    Student
+                    {t("Student")}
                 </span>
                 &nbsp;     &nbsp; &nbsp;    &nbsp;    &nbsp;    &nbsp;    &nbsp;
                 <span id='join-in' style={{cursor:"pointer"}} className={`auth-tab ${isStudent? 'active':""}`} onClick={setTrueForStudent}>
-                    Employee andT&P
+                    {t("Employee and T&P")}
                 </span>
             </h5>
             {isStudent ?(
@@ -119,32 +121,32 @@ const closeLogin=()=>{
                          <path d="M36.3425 16.7358H35V16.6667H20V23.3333H29.4192C28.7592 25.1975 27.56 26.805 26.0133 27.9758C26.0142 27.975 26.015 27.975 26.0158 27.9742L31.1742 32.3392C30.8092 32.6708 36.6667 28.3333 36.6667 20C36.6667 18.8825 36.5517 17.7917 36.3425 16.7358Z" fill="#1976D2"/>
                      </svg>
     </div>
-    <h4 className='text-gray-500'>Login With Google 
+    <h4 className='text-gray-500'>{t("Login With Google")} 
     </h4>
  </p>
  <div className="mt-4 flex items-center justify-between">
 <span className='border-b- w-1/5 lg:w-1/4'></span>
-<p className='text-gray-500 text sm font-bold mb-2'> or</p>
+<p className='text-gray-500 text sm font-bold mb-2'> {t("or")}</p>
 <span className='border-b- w-1/5 lg:w-1/4'></span>
 
  </div>
  <div class="mt-4">
-                 <label class="block text-gray-700 text-sm font-bold mb-2">Email </label>
-                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email"  placeholder='john@example.com'/>
+                 <label class="block text-gray-700 text-sm font-bold mb-2">{t("Email.base")} </label>
+                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email"  placeholder={t("Email.placeholder")}/>
              </div>
              <div class="mt-4">
                  <div class="flex justify-between">
-                     <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                     <a href="/" class="text-xs text-blue-500">Forget Password?</a>
+                     <label class="block text-gray-700 text-sm font-bold mb-2">{t("Password.base")}</label>
+                     <a href="/" class="text-xs text-blue-500">{t("Forget Password?")}</a>
                  </div>
-                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"   placeholder='Must be atleast 6 characters'   type="password"/>
+                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"   placeholder={t("Password.placeholder")}   type="password"/>
              </div>
              <div className="mt-8">
-             <button className='btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 '>Login</button>
+             <button className='btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 '>{t("Login")}</button>
              </div>
 
              <div className="mt-4 flex items-center justify-between">
-<p className='text-sm'>new to internarea? Register(<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>Student</span>/<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>company</span>) </p>
+<p className='text-sm'>{t("New to internarea? Register")}(<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>{t("Student")}</span>/<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>{t("Company")}</span>) </p>
              </div>
 </div>
                     </div>
@@ -156,22 +158,22 @@ const closeLogin=()=>{
                                    <div className="flex bg-white rounded-lg justify-center overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
 <div className="w-full p-8 lg:w-1/2">
                  <div class="mt-4">
-                 <label class="block text-gray-700 text-sm font-bold mb-2">Email </label>
-                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email"  placeholder='john@example.com'/>
+                 <label class="block text-gray-700 text-sm font-bold mb-2">{t("Email.base")}</label>
+                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email"  placeholder={t("Email.placeholder")}/>
              </div>
              <div class="mt-4">
                  <div class="flex justify-between">
-                     <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                     <a href="/" class="text-xs text-blue-500">Forget Password?</a>
+                     <label class="block text-gray-700 text-sm font-bold mb-2">{t("Password.base")}</label>
+                     <a href="/" class="text-xs text-blue-500">{t("Forget Password?")}</a>
                  </div>
-                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"   placeholder='Must be atleast 6 characters'   type="password"/>
+                 <input class=" text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"   placeholder={t("Password.placeholder")}   type="password"/>
              </div>
              <div className="mt-8">
-             <button className='btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 '>Login</button>
+             <button className='btn3  bg-blue-500 h-9 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600 '>{t("Login")}</button>
              </div>
 
              <div className="mt-4 flex items-center justify-between">
-<p className='text-sm'>new to internarea? Register(<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>Student</span>/<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>company</span>) </p>
+<p className='text-sm'>{t("New to internarea? Register")} (<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>{t("Student")}</span>/<span className='text-blue-500 cursor-pointer' onClick={closeLogin}>{t("Company")}</span>) </p>
              </div></div>
              </div>
                 </>

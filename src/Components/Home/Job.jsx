@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -34,28 +35,29 @@ function Job() {
     const filterInternShips=JobData.filter((item)=>
     !selectedCategory ||item.category === selectedCategory
 )
+const { t } = useTranslation(); 
   return (
     <div>
  
     <div className="info-intern mt-12">
     
         <div className="categories flex flex-wrap mt-14">
-<p>POPULAR CATEGORIES :</p>
-<span className={`category mr-4 ml-6 ${ selectedCategory==='Big Brands'?'bg-blue-500 text-white':""}`} onClick={()=>setSelectedCategory('Big Brands')}>Big Brands</span>
+        <p>{t("POPULAR CATEGORIES")}:</p>
+<span className={`category mr-4 ml-6 ${ selectedCategory==='Big Brands'?'bg-blue-500 text-white':""}`} onClick={()=>setSelectedCategory('Big Brands')}>{t("Big Brands")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="Work From Home"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("Work From Home")}>Work From Home</span>
+""}`} onClick={()=>setSelectedCategory("Work From Home")}>{t("Work From home")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="Part-time"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("Part-time")}>Part-time</span>
+""}`} onClick={()=>setSelectedCategory("Part-time")}>{t("Part-time")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="MBA"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("MBA")}>MBA</span>
+""}`} onClick={()=>setSelectedCategory("MBA")}>{t("MBA")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="Engineering"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("Engineering")}>Engineering</span>
+""}`} onClick={()=>setSelectedCategory("Engineering")}>{t("Engineering")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="media"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("media")}>Media</span>
+""}`} onClick={()=>setSelectedCategory("media")}>{t("Media")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="Design"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("Design")}>Design</span>
+""}`} onClick={()=>setSelectedCategory("Design")}>{t("Design")}</span>
 <span className={`category mr-4 ml-6 ${selectedCategory==="Data Science"?'bg-blue-500 text-white':
-""}`} onClick={()=>setSelectedCategory("Data Science")}>Data Science</span>
+""}`} onClick={()=>setSelectedCategory("Data Science")}>{t("Data Science")}</span>
         </div>
         </div>
         <div className="internships" id='container3'>
@@ -64,7 +66,7 @@ function Job() {
 filterInternShips.map(( data,index)=>(
       
         <div className="int-1 mt-6" key={index}>
-<p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i> Actively Hiring</p>
+<p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i>{t("Actively Hiring")}</p>
 <p>{data.title}</p>
 <small className='text-slate-400 text-sm'>{data.company}</small>
    
@@ -73,7 +75,7 @@ filterInternShips.map(( data,index)=>(
         <p className='mt-1'> <i class="bi bi-cash-stack"></i> {data.CTC}</p>
         <p className='mt-1'><i class="bi bi-calendar-fill"></i> {data.Experience}</p>
         <div className='more flex justify-between mt-6'>
-            <span className='bg-slate-200 text-slate-400 w-20 rounded-sm text-center'>Job</span>
+            <span className='bg-slate-200 text-slate-400 w-20 rounded-sm text-center'>{t("Job")}</span>
   <Link to={`detailjob?q=${data._id}`}>
    <span className='text-blue-500 mr-2'> 
 View details <i class="bi bi-chevron-right"></i>

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import "./job.css"
 import axios from 'axios'
-
+import { useTranslation } from 'react-i18next'
 
 function JobDetail() {
   const user=useSelector(selectUser)
@@ -60,7 +60,7 @@ const text=document.getElementById("text")
     navigate("/Jobs")
   }
 }
-
+const { t } = useTranslation();
   return (
     <div>
       
@@ -68,7 +68,7 @@ const text=document.getElementById("text")
 
           <h1 className='font-bold text-3xl'>{data.title}</h1>
           <div className="m-14 shadow-sm rounded-md border">
-          <p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i> Actively Hiring</p>
+          <p className='mb-4 mt-3' id='boxer'> <i className='bi bi-arrow-up-right text-blue-500' ></i>{t("Actively Hiring")}</p>
           <div className="main-info align-baseline mr-96 mt-7">
 
 
@@ -77,49 +77,49 @@ const text=document.getElementById("text")
  <p> <i class="bi bi-geo-alt-fill"></i> {data.location}</p>
  </div>
  <div className="flex tedxt-sm justify-between">
-  <p className='mt-3 text-slate-400'> <i class="bi bi-play-circle-fill"></i>   Start Date  <br />  {data.StartDate}</p>
+  <p className='mt-3 text-slate-400'> <i class="bi bi-play-circle-fill"></i>   {t("Start Date")}  <br />  {data.StartDate}</p>
 
 
-  <p className='mt-3 text-slate-400' > <i class="bi bi-calendar-check-fill"></i>  Experience  <br />
+  <p className='mt-3 text-slate-400' > <i class="bi bi-calendar-check-fill"></i>  {t("Experience.base ")} <br />
   {data.Experience}</p>
 
-  <p className='mt-3 text-slate-400'>  <i class="bi bi-cash"></i>   Salary <br /> {data.CTC}</p>
+  <p className='mt-3 text-slate-400'>  <i class="bi bi-cash"></i>   {t("Salary")} <br /> {data.CTC}</p>
    </div>
    <div className="flex">
     <p className='bg-green-100 rounded-md ml-4 text-green-300'> <i class="bi bi-clock"></i> 12/12/2012</p>
    </div>
    <hr />
    <div className="aboutCompany flex justify-start">
-<p className='mt-3 text-xl font-bold text-start'> About {data.company}</p>
+<p className='mt-3 text-xl font-bold text-start'> {t("About")} {data.company}</p>
 <br />
    </div>
 <div className="flex">
 
- <p className='text-blue-500'> Instagram page  <i className='bi bi-arrow-up-right-square'></i></p>
+ <p className='text-blue-500'> {t("Instagram page")}  <i className='bi bi-arrow-up-right-square'></i></p>
 
 </div>
  <p className='mt-4'> {data.aboutCompany}</p>
           <div className="about-Job">
-          <p className='mt-3 text-xl font-bold text-start'> About Job</p>
+          <p className='mt-3 text-xl font-bold text-start'> {t("About Job")}</p>
           <p>{data.aboutJob}</p>
           </div>
-          <p className='text-blue-500 justify-start'> Learn Business Communication</p>
+          <p className='text-blue-500 justify-start'> {t("Learn Business Communication")}</p>
 
           <div className="whocan">
-          <p className='mt-3 text-xl font-bold text-start'>Who can apply?</p>
+          <p className='mt-3 text-xl font-bold text-start'>{t("Who can apply?")}</p>
           <p>{data.Whocanapply}</p>
           </div>
 
-          <p className='mt-3 text-xl font-bold text-start'>Perks</p>
+          <p className='mt-3 text-xl font-bold text-start'>{t("Perks")}</p>
           <p>{data.perks}</p>
           
-          <p className='mt-3 text-xl font-bold text-start'> Additional information</p>
+          <p className='mt-3 text-xl font-bold text-start'> {t("Additional information")}</p>
           <p>{data.AdditionalInfo}</p>
 
-          <p className='mt-3 text-xl font-bold text-start'> Number of opening</p>
+          <p className='mt-3 text-xl font-bold text-start'> {t("Number Of Opening")}</p>
           <p className='text-start'>{data.numberOfopning}</p>
           <div className='flex justify-center mt-6 bg-blue-500 w-40 text-center text-white font-bold '>
-          <button className='flex justify-center align-middle' onClick={show}>Apply</button>
+          <button className='flex justify-center align-middle' onClick={show}>{t("Apply")}</button>
 
           </div>
      
@@ -131,21 +131,21 @@ const text=document.getElementById("text")
   <>
   <div className="application-page">
     <div className="bg">
-      <button className='close2' onClick={hide} ><i className='bi-bi-x'></i> Close</button>
-      <p>Applyion for Company {data.company}</p>
+      <button className='close2' onClick={hide} ><i className='bi-bi-x'></i> {t("close")}</button>
+      <p>{t("Applying for")}  {data.company}</p>
       <p className='mt-3 text-sm font-bold text-start mb-3'>{data.aboutCompany}</p>
 
     </div>
     <div className="moreSteps">
-      <p className='font-semibold text-xl'>Your resume</p>
-      <small>Your current resume will be submitted along with the application</small>
+      <p className='font-semibold text-xl'>{t("Your resume.base")}</p>
+      <small>{t("Your resume.small")}</small>
 
-      <p className='mt-5 font-semibold text-xl'>Cover letter</p>
+      <p className='mt-5 font-semibold text-xl'>{t("Cover letter")}</p>
       <br />
       <p>Why should we hire for this role?</p>
       <textarea name="coverLetter" placeholder='' id="text"  value={textarea} onChange={(e)=>setTextare(e.target.value)}></textarea>
-      <p className='mt-5 font-semibold text-xl'>Your availability</p>
-      <p>Confirm your availiblity</p>
+      <p className='mt-5 font-semibold text-xl'>{t("Your availability")}</p>
+      <p>{t("Confirm your availability")}</p>
 
     </div>
     <div>
@@ -156,7 +156,7 @@ const text=document.getElementById("text")
            
           
           />
-          Yes, I am available to join immediately
+         {t("Yes, I am available to join immediately")}
         </label>
       </div>
 
@@ -168,7 +168,7 @@ const text=document.getElementById("text")
            
           
           />
-          No, I am currently on notice period
+             {t("No, I am currently on notice period")}
         </label>
       </div>
 
@@ -180,7 +180,7 @@ const text=document.getElementById("text")
           
            
           />
-          No, I will have to serve notice period
+          {t("No, I will have to serve notice period")}
         </label>
       </div>
 
@@ -193,19 +193,19 @@ const text=document.getElementById("text")
        
           />
           Other <span className='text-slate-500'>
-          (Please specify your availability)  </span> 
+          ({t("Please specify your availability")}) </span> 
         </label>
       </div>
-      <p className='mt-5 font-semibold text-xl'>Custom resume <span className='text-slate-500'>(Optional)</span></p>
-      <small className='text-slate-500'>Employer can download and view this resume</small>
+      <p className='mt-5 font-semibold text-xl'>{t("Custom resume")} <span className='text-slate-500'>({t("Optional")})</span></p>
+      <small className='text-slate-500'>{t("Employer can download and view this resume")}</small>
 
  
       <div className="submit flex justify-center">
         {user?(
-    <button className='submit-btn' onClick={submitApplication}  >Submit application</button>
+    <button className='submit-btn' onClick={submitApplication}  >{t("Submit application")}</button>
         ):(
           <Link to={"/register"}>
-          <button className='submit-btn' >Submit application</button>
+          <button className='submit-btn' >{t("Submit application")}</button>
           </Link>
         )
           
