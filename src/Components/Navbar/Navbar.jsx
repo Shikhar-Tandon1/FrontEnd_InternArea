@@ -104,7 +104,7 @@ const user=useSelector(selectUser)
         <button className='btn1' onClick={showLogin}>{t("Login")}</button>
             
             
-            <button className='btn2'><Link  to="/register">t{("Register")}</Link></button>
+            <button className='btn2'><Link  to="/register">{t("Register")}</Link></button>
     </div>
             </>
         )
@@ -218,6 +218,20 @@ Hire Talent
     <h4 className='text-gray-500'>{t("Login With Google")} 
     </h4>
  </p>
+
+
+ <div className="flex items-center h-9 justify-center mt-4 bg-slate-100 rounded-lg hover:bg-gray-100 display: inline-block">
+      < Link to={'./firebase/PhoneAuth'}>
+     <button><h4 className='bi bi-telephone mx-8 text-gray-500'>&nbsp;Login With Phone</h4></button></Link>
+    </div>
+
+    <div className="mt-4 flex items-center justify-between">
+<span className='border-b- w-1/5 lg:w-1/4'></span>
+<p className='text-gray-500 text sm font-bold mb-2'> or</p>
+<span className='border-b- w-1/5 lg:w-1/4'></span>
+ </div>
+
+
  <div className="mt-4 flex items-center justify-between">
 <span className='border-b- w-1/5 lg:w-1/4'></span>
 <p className='text-gray-500 text sm font-bold mb-2'> {t("or")}</p>

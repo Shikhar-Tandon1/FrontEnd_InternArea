@@ -143,7 +143,7 @@ const navigate=useNavigate()
   <div className="reg">
     
   <Link to="/register" >   <button  className='btn4'>
-  Register</button></Link>
+  {t("Register")}</button></Link>
   </div>
   <div className="admin">
 
