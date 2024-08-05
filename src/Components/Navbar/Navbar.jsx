@@ -135,7 +135,7 @@ const user=useSelector(selectUser)
     ):(
         <>
             <div className="flex mt-7 hire">
-Hire Talent
+{t("Hire Talent")}
     </div>
 
     <div className="admin">
