@@ -8,6 +8,7 @@ import Job from './Job'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import AccessControl from '../../Restriction/AccessControl'
 function Home() {
 
 
@@ -54,6 +55,7 @@ const filterInternShips=internshipData.filter((item)=>
         sideScrollIntern(contianer, direction, 25, step, 10)
     }
     const { t } = useTranslation(); 
+    AccessControl();
   return (
     <>
    <h1 className='text-center text-3xl font-bold'>{t("Make your dream career a reality")}

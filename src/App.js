@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './Components/Home/Home';
 import Navbar from './Components/Navbar/Navbar';
-import { Routes,Route } from 'react-router-dom';
+import {Routes,Route} from 'react-router-dom';
 import Register from './Components/auth/Register';
 import Intern from "./Components/Internships/intern"
 import JobAvl from "./Components/Job/JobAvl"
@@ -20,6 +20,7 @@ import DetailApplication from './Applications/DetailApplication';
 import UserApplication from './Profile/UserApplication';
 import UserapplicationDetail from "./Applications/DetailApplicationUser";
 import LanguageSelector from './Components/LanguageSelector';
+import RestrictedEntry from './Restriction/RestrictedEntry';
 function App() {
   const dispatch=useDispatch();
   useEffect(() => {
@@ -41,13 +42,16 @@ function App() {
     },[dispatch] );
   return (
     <div className="App">
-
+         
             <LanguageSelector/>   
 
 <Navbar/>
 
+
 <Routes>
+
   <Route path='/' element={<Home/>}/>
+ <Route path='restricted' element={<RestrictedEntry/>}/>
 <Route path='/register' element={<Register/>}/>
 <Route path='/internship' element={<Intern/>}/>
 <Route path='/Jobs' element={<JobAvl/>}/>
@@ -61,6 +65,7 @@ function App() {
 <Route path='/applications' element={<ViewAllApplication/>}/>
 <Route path='/UserapplicationDetail' element={< UserapplicationDetail/>}/>
 <Route path='/userapplication' element={<UserApplication/>}/>
+
 </Routes>
 
     </div>
