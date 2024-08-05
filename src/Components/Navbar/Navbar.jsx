@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux'
 import { selectUser } from '../../Feature/Userslice'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import axios from 'axios'
+import { getSystemInfo } from '../../getSystemInfo'
 
 function Navbar() {
     const navigate=useNavigate()
@@ -18,15 +20,28 @@ const user=useSelector(selectUser)
     const [isDivVisibleForlogin,setDivVisibleForlogin]=useState(false)
     const [isDivVisibleForProfile,setDivVisibleProfile]=useState(false)
     const [isStudent,setStudent]=useState(true)
-    const loginFunction=()=>{
-        signInWithPopup(auth,provider).then((res)=>{
-            console.log(res)
-          
-        }).catch((err)=>{
-            console.log(err)
-        })
+
+
+    const loginFunction = async () => {
+        try {
+          const result = signInWithPopup(auth,provider);
+          const user = result.user;
+          const systemInfo = getSystemInfo();
+    
+
+          await axios.post('https://backend-internarea-1dye.onrender.com/api/login', {
+            userId: user.uid,
+            systemInfo
+          });
+    
+
+          console.log('Login successful');
+        } catch (error) {
+          console.error('Login failed', error);
+        }
         setDivVisibleForlogin(false)
-    }
+      };
+
 
     const showLogin=()=>{
         setDivVisibleForlogin(true)
