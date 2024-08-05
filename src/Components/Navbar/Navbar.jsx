@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { selectUser } from '../../Feature/Userslice'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+
 function Navbar() {
     const navigate=useNavigate()
 const user=useSelector(selectUser)
@@ -39,7 +40,7 @@ const user=useSelector(selectUser)
     const setFalseForStudent=()=>{
         setStudent(true)
     }
-    //  for showing profile dropdown
+
     const showtheProfile=()=>{
         setDivVisibleProfile(true)
         document.getElementById("ico3").className="bi bi-caret-up-fill"
@@ -218,19 +219,6 @@ Hire Talent
     <h4 className='text-gray-500'>{t("Login With Google")} 
     </h4>
  </p>
-
-
- <div className="flex items-center h-9 justify-center mt-4 bg-slate-100 rounded-lg hover:bg-gray-100 display: inline-block">
-      < Link to={'./firebase/PhoneAuth'}>
-     <button><h4 className='bi bi-telephone mx-8 text-gray-500'>&nbsp;Login With Phone</h4></button></Link>
-    </div>
-
-    <div className="mt-4 flex items-center justify-between">
-<span className='border-b- w-1/5 lg:w-1/4'></span>
-<p className='text-gray-500 text sm font-bold mb-2'> or</p>
-<span className='border-b- w-1/5 lg:w-1/4'></span>
- </div>
-
 
  <div className="mt-4 flex items-center justify-between">
 <span className='border-b- w-1/5 lg:w-1/4'></span>

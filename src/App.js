@@ -20,7 +20,6 @@ import DetailApplication from './Applications/DetailApplication';
 import UserApplication from './Profile/UserApplication';
 import UserapplicationDetail from "./Applications/DetailApplicationUser";
 import LanguageSelector from './Components/LanguageSelector';
-import PhoneAuth from './firebase/PhoneAuth';
 
 function App() {
   const dispatch=useDispatch();
@@ -65,7 +64,6 @@ function App() {
 <Route path='/applications' element={<ViewAllApplication/>}/>
 <Route path='/UserapplicationDetail' element={< UserapplicationDetail/>}/>
 <Route path='/userapplication' element={<UserApplication/>}/>
-<Route path='/phoneauth' element={<PhoneAuth/>}/>
 </Routes>
 
     </div>
