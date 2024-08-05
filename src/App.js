@@ -20,7 +20,6 @@ import DetailApplication from './Applications/DetailApplication';
 import UserApplication from './Profile/UserApplication';
 import UserapplicationDetail from "./Applications/DetailApplicationUser";
 import LanguageSelector from './Components/LanguageSelector';
-import EmailAuth from './firebase/EmailAuth';
 function App() {
   const dispatch=useDispatch();
   useEffect(() => {
@@ -42,7 +41,7 @@ function App() {
     },[dispatch] );
   return (
     <div className="App">
-            <EmailAuth/>
+
             <LanguageSelector/>   
 
 <Navbar/>
